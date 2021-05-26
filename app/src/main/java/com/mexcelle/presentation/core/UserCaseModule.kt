@@ -1,7 +1,7 @@
 package com.mexcelle.presentation.core
 
-import com.mexcelle.mvvmcovid.domain.repository.CountryRepository
-import com.mexcelle.mvvmcovid.domain.usecase.GetCountryUseCase
+import com.mexcelle.data.domain.repository.CountryRepository
+import com.mexcelle.data.domain.usecase.GetCountryUseCase
 import dagger.Module
 import dagger.Provides
 

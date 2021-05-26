@@ -1,6 +1,6 @@
 package com.mexcelle.presentation.core
 
-import com.mexcelle.mvvmcovid.api.CovidServices
+import com.mexcelle.data.api.CovidServices
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

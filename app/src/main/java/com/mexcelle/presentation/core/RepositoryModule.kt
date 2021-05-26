@@ -1,8 +1,8 @@
 package com.mexcelle.presentation.core
-import com.mexcelle.mvvmcovid.domain.repository.CountryRepository
-import com.mexcelle.mvvmcovid.repository.Country.CountryRepositoryImpl
-import com.mexcelle.mvvmcovid.repository.Country.dataSource.CountryLocalDataSource
-import com.mexcelle.mvvmcovid.repository.Country.dataSource.CountryRemoteDataSource
+import com.mexcelle.data.domain.repository.CountryRepository
+import com.mexcelle.data.repository.country.CountryRepositoryImpl
+import com.mexcelle.data.repository.country.dataSource.CountryLocalDataSource
+import com.mexcelle.data.repository.country.dataSource.CountryRemoteDataSource
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

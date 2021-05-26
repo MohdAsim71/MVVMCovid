@@ -2,7 +2,6 @@ package com.mexcelle.presentation
 
 import android.app.Application
 import com.anushka.tmdbclient.presentation.di.core.AppModule
-import com.mexcelle.mvvmcovid.BuildConfig
 import com.mexcelle.presentation.core.AppComponent
 import com.mexcelle.presentation.core.DaggerAppComponent
 import com.mexcelle.presentation.core.NetModule

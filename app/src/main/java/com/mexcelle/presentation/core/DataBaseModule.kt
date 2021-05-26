@@ -2,8 +2,8 @@ package com.mexcelle.presentation.core
 
 import android.content.Context
 import androidx.room.Room
-import com.mexcelle.mvvmcovid.db.CountryDao
-import com.mexcelle.mvvmcovid.db.CovidDatabase
+import com.mexcelle.data.db.CountryDao
+import com.mexcelle.data.db.CovidDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

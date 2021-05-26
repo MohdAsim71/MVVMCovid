@@ -1,18 +1,556 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/screen_bg"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent">
+
+<!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+                    <com.facebook.shimmer.ShimmerFrameLayout
+
+                        android:id="@+id/shimmer6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <include layout="@layout/shimmerl"
+                                android:layout_height="50dp"
+                                android:layout_width="match_parent"
+                                android:layout_margin="10dp"
+
+                                />
+                        </LinearLayout>
+
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/view"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="60dp">
+                    </androidx.viewpager.widget.ViewPager>
+                </RelativeLayout>
+-->
+
+
+                <RelativeLayout android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Stay Home"
+                        android:textColor="@color/green"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Stay Safe"
+                        android:layout_marginTop="-15dp"
+                        android:textColor="@color/green"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_260sdp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:id="@+id/item1"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/hospitals"
+                            android:layout_width="@dimen/_120sdp"
+                            android:background="@drawable/button"
+                            android:layout_alignParentLeft="true"
+                            android:layout_height="@dimen/_80sdp">
+                            <ImageView
+                                android:id="@+id/hospitals_icon"
+                                android:layout_width="@dimen/_50sdp"
+                                android:padding="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/hospita"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/hospitals_icon"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Hospitals"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/countries"
+
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="right"
+                            android:background="@drawable/button"
+
+
+
+                            android:layout_height="@dimen/_80sdp">
+                            <ImageView
+                                android:id="@+id/counrty_icon"
+                                android:layout_width="@dimen/_50sdp"
+                                android:padding="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_5sdp"                    android:layout_centerHorizontal="true"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/world"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/counrty_icon"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Countries"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_below="@+id/item1"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_20sdp"
+
+
+
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/advisorie"
+
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_alignParentLeft="true"
+                            android:background="@drawable/button"
+
+
+
+                            android:layout_height="@dimen/_80sdp">
+                            <ImageView
+                                android:id="@+id/advice_icon"
+                                android:layout_width="@dimen/_50sdp"
+                                android:padding="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_5sdp"                    android:layout_centerHorizontal="true"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/paper"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/advice_icon"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Advisories"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/helpline"
+
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_marginLeft="@dimen/_20sdp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/button"
+
+                            android:layout_gravity="right"
+
+
+                            android:layout_height="@dimen/_80sdp">
+                            <ImageView
+                                android:id="@+id/help_icon"
+                                android:layout_width="@dimen/_50sdp"
+                                android:padding="@dimen/_12sdp"
+                                android:layout_marginTop="@dimen/_5sdp"                    android:layout_centerHorizontal="true"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/phone"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/help_icon"
+                                android:layout_centerHorizontal="true"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Helpline"
+                                android:textColor="@color/light_black"
+                                android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_margin="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/hospitals1"
+                        android:padding="10dp"
+                        android:drawableTop="@mipmap/hospital"
+                        android:layout_marginRight="10dp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:fontFamily="serif"
+                        android:textColor="@color/light_black"
+                        android:text="Hospitals"
+                        android:background="@drawable/button"
+                        android:layout_weight="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                    <Button
+                        android:id="@+id/countries2"
+                        android:padding="10dp"
+                        android:drawableTop="@mipmap/globe"
+                        android:layout_marginLeft="10dp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:fontFamily="serif"
+                        android:textColor="@color/light_black"
+                        android:text="Countries"
+                        android:background="@drawable/button"
+                        android:layout_weight="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/advisorie1"
+                        android:padding="10dp"
+                        android:drawableTop="@mipmap/notif"
+                        android:layout_marginRight="10dp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:fontFamily="serif"
+                        android:textColor="@color/light_black"
+                        android:text="Advisories"
+
+                        android:background="@drawable/button"
+                        android:layout_weight="2"
+                        android:layout_width="85dp"
+                        android:layout_height="wrap_content"/>
+
+
+                    <Button
+                        android:id="@+id/helpline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/button"
+                        android:drawableTop="@mipmap/phone"
+                        android:fontFamily="serif"
+                        android:padding="10dp"
+                        android:text="Helpline"
+                        android:textAllCaps="false"
+                        android:textColor="@color/light_black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_margin="20dp"
+                    android:visibility="gone"
+                    android:layout_height="@dimen/_150sdp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        android:background="@drawable/button"
+                        android:layout_height="match_parent">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:background="@drawable/trackerrr"
+                            android:layout_height="match_parent">
+                            <RelativeLayout
+                                android:id="@+id/india_rl"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="@dimen/_230sdp"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="India"
+                                    android:fontFamily="serif"
+
+                                    android:id="@+id/india"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_25sdp"/>
+                                <TextView
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="5th Position"
+                                    android:fontFamily="serif"
+
+                                    android:layout_alignParentRight="true"
+                                    android:id="@+id/position_tv"
+                                    android:textSize="@dimen/_25sdp"
+                                    android:textColor="@color/white"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_below="@+id/india_rl"
+                                android:id="@+id/case_ly"
+                                android:layout_width="@dimen/_230sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Cases"
+                                    android:fontFamily="serif"
+
+                                    android:id="@+id/total_case_txt"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_20sdp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="total case"
+                                    android:fontFamily="serif"
+
+                                    android:textColor="@color/white"
+                                    android:layout_alignParentRight="true"
+                                    android:textSize="@dimen/_20sdp"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:id="@+id/total_case"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_below="@+id/case_ly"
+                                android:id="@+id/recovered_ly"
+                                android:layout_width="@dimen/_230sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Recoved"
+                                    android:fontFamily="serif"
+
+                                    android:id="@+id/total_recoverd_txt"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_20sdp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="recoverd"
+                                    android:fontFamily="serif"
+
+                                    android:id="@+id/total_recoverd"
+                                    android:textSize="@dimen/_20sdp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:textColor="@color/white"/>
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_below="@+id/recovered_ly"
+                                android:layout_width="@dimen/_230sdp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Active Cases"
+                                    android:fontFamily="serif"
+
+                                    android:id="@+id/active_case_txt"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_20sdp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="active"
+                                    android:fontFamily="serif"
+
+                                    android:layout_marginLeft="@dimen/_20sdp"
+                                    android:textSize="@dimen/_20sdp"
+                                    android:layout_alignParentRight="true"
+                                    android:id="@+id/active_case"
+                                    android:textColor="@color/white"
+                                    />
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card"
+                    android:layout_marginBottom="@dimen/_20sdp"
+
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    app:cardCornerRadius="20dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_90sdp">
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/corona2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginTop="28dp"
+                            android:gravity="bottom"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="India live updates"
+                            android:textColor="@color/light_black"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView3"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="-5dp"
+
+                            android:layout_marginLeft="32dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="about corona virus"
+                            android:textColor="@color/light_black"
+                            android:textSize="15dp"
+                            android:gravity="top"
+
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3"
+                            app:layout_constraintVertical_bias="0.0" />\
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginEnd="32dp"
+
+                            android:layout_marginRight="32dp"
+                            android:src="@mipmap/arrow"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </RelativeLayout>
+
+
+
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

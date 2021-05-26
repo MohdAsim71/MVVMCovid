@@ -1,6 +1,6 @@
 package com.mexcelle.presentation.di.country
 
-import com.mexcelle.Country.CountryActivity
+import com.mexcelle.countryActivity.CountryActivity
 import dagger.Subcomponent
 
 @CountryScope
