@@ -2,8 +2,7 @@ package com.mexcelle.presentation.core
 
 import android.content.Context
 import androidx.room.Room
-import com.mexcelle.data.db.CountryDao
-import com.mexcelle.data.db.CovidDatabase
+import com.mexcelle.data.db.*
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -23,5 +22,20 @@ class DataBaseModule {
         return covidDatabase.CountryDao()
     }
 
+    @Singleton
+    @Provides
+    fun provideHospitalDao(covidDatabase: CovidDatabase):HospitalDao{
+        return covidDatabase.HospitalDao()
+    }
+    @Singleton
+    @Provides
+    fun provideContactDao(covidDatabase: CovidDatabase):ContactDao{
+        return covidDatabase.ContactDao()
+    }
+    @Singleton
+    @Provides
+    fun provideAdviceDao(covidDatabase: CovidDatabase):AdviceDao{
+        return covidDatabase.AdviceDao()
+    }
 
 }

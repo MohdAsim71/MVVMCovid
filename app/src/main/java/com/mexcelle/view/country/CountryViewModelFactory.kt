@@ -1,4 +1,4 @@
-package com.mexcelle.countryActivity
+package com.mexcelle.view.country
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

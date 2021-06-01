@@ -1,7 +1,7 @@
 package com.mexcelle.data.repository.country.dataSourceImpl
 
-import com.example.kotlincovid19.pojoClass.CountriesDetailsItem
 import com.mexcelle.data.db.CountryDao
+import com.mexcelle.data.model.CountriesDetailsItem
 import com.mexcelle.data.repository.country.dataSource.CountryLocalDataSource
 
 class CounrtyLocalDataSourceImpl(private val countryDao:CountryDao):CountryLocalDataSource

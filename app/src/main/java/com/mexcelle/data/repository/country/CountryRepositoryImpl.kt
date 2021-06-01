@@ -1,8 +1,8 @@
 package com.mexcelle.data.repository.country
 
 import android.util.Log
-import com.example.kotlincovid19.pojoClass.CountriesDetailsItem
 import com.mexcelle.data.domain.repository.CountryRepository
+import com.mexcelle.data.model.CountriesDetailsItem
 import com.mexcelle.data.repository.country.dataSource.CountryLocalDataSource
 import com.mexcelle.data.repository.country.dataSource.CountryRemoteDataSource
 import java.lang.Exception

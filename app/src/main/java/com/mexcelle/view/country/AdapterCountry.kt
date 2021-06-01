@@ -1,4 +1,4 @@
-package com.mexcelle.countryActivity
+package com.mexcelle.view.country
 
 import android.content.Context
 import android.util.Log
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlincovid19.pojoClass.CountriesDetailsItem
 import com.mexcelle.data.R
+import com.mexcelle.data.model.CountriesDetailsItem
 import java.util.ArrayList
 
 class AdapterCountry(
@@ -35,8 +35,8 @@ RecyclerView.Adapter<AdapterCountry.ViewHolder>() {
     }
 
     override fun onBindViewHolder(
-        holder: ViewHolder,
-        position: Int
+            holder: ViewHolder,
+            position: Int
     )
     {
         val countriesDetails: CountriesDetailsItem = counrtries[position]
