@@ -18,7 +18,7 @@ class ContactRepositoryImpl(
 {
 
     override suspend fun getContact(): List<Regional> {
-    return getContactFromDB()
+    return getCountryFromAPI()
     }
 
     suspend fun getCountryFromAPI(): List<Regional> {
@@ -46,6 +46,8 @@ class ContactRepositoryImpl(
          var countryList: List<Regional> =  ArrayList<Regional>()
         try {
             countryList = contctLocalDataSource.getContactFromDB()
+            ContactActivity.shimmerFrameLayout!!.stopShimmerAnimation()
+            ContactActivity.shimmerFrameLayout!!.visibility = View.GONE
         } catch (exception: Exception) {
             Log.i("MyTag", exception.message.toString())
         }

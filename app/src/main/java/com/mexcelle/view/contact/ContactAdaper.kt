@@ -2,15 +2,17 @@ package com.mexcelle.view.contact
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mexcelle.data.R
+import com.mexcelle.data.databinding.AdvisorielayoutBinding
+import com.mexcelle.data.databinding.ContactlayoutBinding
+import com.mexcelle.data.model.advice.NotificationData
 import com.mexcelle.data.model.contact.Regional
 import java.util.*
 
@@ -30,9 +32,9 @@ class ContactAdaper(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val v: View =
-            LayoutInflater.from(context).inflate(R.layout.contactlayout, parent, false)
-        return ViewHolder(v)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding: ContactlayoutBinding = DataBindingUtil.inflate(layoutInflater, R.layout.contactlayout, parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(
@@ -40,17 +42,9 @@ class ContactAdaper(
         position: Int
     ) {
         val contactDetails: Regional = contact[position]
-        holder.state.setText(contactDetails.loc)
-        holder.phone.setText(contactDetails.number)
+        holder.bind(contact[position])
 
-
-
-       /* var regulartypeFace =
-            Typeface.createFromAsset(context.assets, "fonts/Raleway_Regular.ttf")
-        holder.state.setTypeface(regulartypeFace)
-        holder.phone.setTypeface(regulartypeFace)
-*/
-        holder.calllayout.setOnClickListener {
+        holder.binding.callLyout.setOnClickListener {
 
 
             ////Log.e("HelpNumberCustomAdapter", "Calling " + emergencyContactsArrayList.get(position).getName() + " " + emergencyContactsArrayList.get(position).getContactNo());
@@ -71,17 +65,19 @@ class ContactAdaper(
         return contact.size
     }
 
-    class ViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
-        var state: TextView
-        var phone: TextView
-        var calllayout:LinearLayout
+    class ViewHolder(val binding:ContactlayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        init {
-            state = itemView.findViewById(R.id.stateconname)
-            calllayout = itemView.findViewById(R.id.call_lyout)
-            phone = itemView.findViewById(R.id.phone)
+
+        fun bind(regional: Regional){
+            binding.contactData=regional
+            binding.executePendingBindings()
+
+            //  binding.tittle.text = notificationData.title
+            //binding.link.text = notificationData.link
+
         }
+
     }
 
     /*init {

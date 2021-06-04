@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mexcelle.data.R
+import com.mexcelle.data.databinding.HospitallayoutBinding
+import com.mexcelle.data.model.advice.NotificationData
 import com.mexcelle.data.model.hospitalsPojo.MedicalCollege
 import kotlin.collections.ArrayList
 
@@ -28,9 +31,9 @@ class HospitalAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val v =
-            LayoutInflater.from(context).inflate(R.layout.hospitallayout, parent, false)
-        return ViewHolder(v)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding: HospitallayoutBinding = DataBindingUtil.inflate(layoutInflater, R.layout.hospitallayout, parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(
@@ -38,16 +41,22 @@ class HospitalAdapter(
         position: Int
     ) {
         val hospitalDetail = hospitals[position]
-        holder.state_name.setText(hospitalDetail.state)
-        holder.ownership.setText(hospitalDetail.ownership)
-        holder.city.setText(hospitalDetail.city)
-        holder.capacity.setText(hospitalDetail.admissionCapacity.toString())
-        holder.beds.setText(hospitalDetail.hospitalBeds.toString())
-        holder.name.setText(hospitalDetail.name)
+        holder.bind(hospitals[position])
+
+        /* holder.state_name.setText(hospitalDetail.state)
+         holder.ownership.setText(hospitalDetail.ownership)
+         holder.city.setText(hospitalDetail.city)
+         holder.capacity.setText(hospitalDetail.admissionCapacity.toString())
+         holder.beds.setText(hospitalDetail.hospitalBeds.toString())
+         holder.name.setText(hospitalDetail.name)*/
         val isExpanded: Boolean = hospitals[position].isExpanded
-        holder.constraintLayout.visibility = if (isExpanded) View.VISIBLE else View.GONE
+        holder.binding.expandale.visibility = if (isExpanded) View.VISIBLE else View.GONE
 
-
+        holder.binding.name.setOnClickListener {
+            val hospitalDetail = hospitals[position]
+            hospitalDetail.isExpanded=(!hospitalDetail.isExpanded)
+            notifyItemChanged(position)
+        }
        /* var regulartypeFace = Typeface.createFromAsset(context.assets, "fonts/Raleway_Regular.ttf")
         var lighttypeFace = Typeface.createFromAsset(context.assets, "fonts/Raleway-Light.ttf")
         var semiboldtypeFace = Typeface.createFromAsset(context.assets, "fonts/Raleway_SemiBold.ttf")
@@ -68,34 +77,17 @@ class HospitalAdapter(
         return hospitals.size
     }
 
-    inner class ViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
-        var state_name: TextView
-        var bad_name_tv: TextView
-        var addmission_name_tv: TextView
-        var name: TextView
-        var city: TextView
-        var ownership: TextView
-        var capacity: TextView
-        var beds: TextView
-        var constraintLayout: RelativeLayout
+    inner class ViewHolder(val binding: HospitallayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        init {
-            state_name = itemView.findViewById(R.id.statenamehos)
-            bad_name_tv = itemView.findViewById(R.id.textView6)
-            addmission_name_tv = itemView.findViewById(R.id.textView5)
-            name = itemView.findViewById(R.id.name)
-            city = itemView.findViewById(R.id.city)
-            capacity = itemView.findViewById(R.id.capacity)
-            ownership = itemView.findViewById(R.id.ownership)
-            beds = itemView.findViewById(R.id.beds)
-            constraintLayout = itemView.findViewById(R.id.expandale)
-            name.setOnClickListener {
-                val hospitalDetail = hospitals[adapterPosition]
-                hospitalDetail.isExpanded=(!hospitalDetail.isExpanded)
-                notifyItemChanged(adapterPosition)
-            }
+        fun bind(medicalCollege: MedicalCollege){
+            binding.hospitalsData=medicalCollege
+            binding.executePendingBindings()
+            //  binding.tittle.text = notificationData.title
+            //binding.link.text = notificationData.link
+
         }
+
     }
 
 }

@@ -2,11 +2,13 @@ package com.mexcelle.view.Advice
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mexcelle.data.R
+import com.mexcelle.data.databinding.AdvisorielayoutBinding
 import com.mexcelle.data.model.advice.NotificationData
 import java.util.*
 
@@ -27,9 +29,11 @@ class AdvisorieAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val v: View =
-            LayoutInflater.from(context).inflate(R.layout.advisorielayout, parent, false)
-        return ViewHolder(v)
+       val layoutInflater = LayoutInflater.from(parent.context)
+       val binding:AdvisorielayoutBinding = DataBindingUtil.inflate(layoutInflater, R.layout.advisorielayout, parent, false)
+       return ViewHolder(binding)
+
+
     }
 
     override fun onBindViewHolder(
@@ -37,14 +41,8 @@ class AdvisorieAdapter(
         position: Int
     ) {
         val advisorieDetail: NotificationData = advices[position]
-        holder.tittle.text=(advisorieDetail.title)
-        holder.link.text=(advisorieDetail.link)
-        val mlink: String = advisorieDetail.link
+        holder.bind(advices[position])
 
-
-       /* var regulartypeFace = Typeface.createFromAsset(context.assets, "fonts/Raleway_Regular.ttf")
-        holder.tittle.setTypeface(regulartypeFace)
-        holder.link.setTypeface(regulartypeFace)*/
 
         holder.itemView.setOnClickListener {
            /* val intent = Intent(context, WebViewActivity::class.java)
@@ -60,16 +58,16 @@ class AdvisorieAdapter(
 
 
 
-    class ViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(val binding: AdvisorielayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
 
-        var tittle: TextView
-        var link: TextView
+        fun bind(notificationData: NotificationData){
+            binding.adviceData=notificationData
+            binding.executePendingBindings()
+          //  binding.tittle.text = notificationData.title
+            //binding.link.text = notificationData.link
 
-        init {
-            tittle = itemView.findViewById(R.id.tittle)
-            link = itemView.findViewById(R.id.link)
         }
     }
 
